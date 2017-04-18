@@ -3,9 +3,9 @@ rough
 config.ls
 npm-debug.log
 *.sublime-workspace
-*.js
 *.css
 *.rdb
 coverage/
 dist/
 node_modules/
+.idea
