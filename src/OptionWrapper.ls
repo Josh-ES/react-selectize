@@ -24,31 +24,13 @@ module.exports = create-class do
 
             # mimic the same behaviour as that of an html select element
             # on-mouse-down :: Event -> ()
-            on-mouse-down: (e) ~>
-
-                # listener :: Event -> ()
-                listener = (e) ~>
-                    @props.on-click e
-                    window.remove-event-listener \mouseup, listener
-
-                window.add-event-listener \mouseup, listener
+            on-click: (e) ~>
+                @props.on-click e
                 cancel-event e
 
             on-mouse-move: @props.on-mouse-move
             on-mouse-out: @props.on-mouse-out
             on-mouse-over: @props.on-mouse-over
-
-            # mimic the same behaviour as that of an html select element on touch screens
-            # on-touch-start :: Event -> ()
-            on-touch-start: (e) ~>
-
-                # listener :: Event -> ()
-                listener = (e) ~>
-                    @props.on-click e
-                    window.remove-event-listener \touchend, listener
-
-                window.add-event-listener \touchend, listener
-                cancel-event e
 
             @props.render-item @props.item
 

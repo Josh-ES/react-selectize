@@ -11,27 +11,13 @@
       var this$ = this;
       return div({
         className: "option-wrapper " + (!!this.props.highlight ? 'highlight' : ''),
-        onMouseDown: function(e){
-          var listener;
-          listener = function(e){
-            this$.props.onClick(e);
-            return window.removeEventListener('mouseup', listener);
-          };
-          window.addEventListener('mouseup', listener);
+        onClick: function(e){
+          this$.props.onClick(e);
           return cancelEvent(e);
         },
         onMouseMove: this.props.onMouseMove,
         onMouseOut: this.props.onMouseOut,
-        onMouseOver: this.props.onMouseOver,
-        onTouchStart: function(e){
-          var listener;
-          listener = function(e){
-            this$.props.onClick(e);
-            return window.removeEventListener('touchend', listener);
-          };
-          window.addEventListener('touchend', listener);
-          return cancelEvent(e);
-        }
+        onMouseOver: this.props.onMouseOver
       }, this.props.renderItem(this.props.item));
     },
     shouldComponentUpdate: function(nextProps){
