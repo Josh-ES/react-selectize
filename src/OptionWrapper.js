@@ -13,6 +13,7 @@
         className: "option-wrapper " + (!!this.props.highlight ? 'highlight' : ''),
         onMouseDown: function(e){
           var listener;
+          console.log(e);
           listener = function(e){
             this$.props.onClick(e);
             return window.removeEventListener('mouseup', listener);

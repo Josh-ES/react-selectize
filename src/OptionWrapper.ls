@@ -2,8 +2,8 @@
 {is-equal-to-object} = require \prelude-extension
 {cancel-event} = require \./utils
 
-# OptionWrapper & ValueWrapper are used for optimizing performance 
-module.exports = create-class do 
+# OptionWrapper & ValueWrapper are used for optimizing performance
+module.exports = create-class do
 
     # get-default-porps :: () -> Props
     get-default-props: ->
@@ -25,7 +25,8 @@ module.exports = create-class do
             # mimic the same behaviour as that of an html select element
             # on-mouse-down :: Event -> ()
             on-mouse-down: (e) ~>
-                
+                console.log e
+
                 # listener :: Event -> ()
                 listener = (e) ~>
                     @props.on-click e
@@ -41,6 +42,6 @@ module.exports = create-class do
 
     # should-component-update :: Props -> Boolean
     should-component-update: (next-props) ->
-        (!(next-props?.uid `is-equal-to-object` @props?.uid)) or 
-        (next-props?.highlight != @props?.highlight) or 
+        (!(next-props?.uid `is-equal-to-object` @props?.uid)) or
+        (next-props?.highlight != @props?.highlight) or
         (next-props?.selectable != @props?.selectable)
