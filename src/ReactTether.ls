@@ -3,7 +3,9 @@
 shallow-compare = require \react-addons-shallow-compare
 Tether = require \tether
 
-module.exports = create-class do 
+module.exports = create-class do
+
+    display-name: \ReactTether
 
     # get-default-props :: () -> Props
     get-default-props: ->
@@ -27,7 +29,7 @@ module.exports = create-class do
 
     # destroy-tether :: () -> Void
     destroy-tether: !->
-        
+
         # destroy tether instance
         if @tether
             @tether.destroy!
@@ -41,7 +43,7 @@ module.exports = create-class do
         @node = @tether = undefined
 
     # component-did-mount :: () -> Void
-    component-did-mount: !-> 
+    component-did-mount: !->
         if @props.children
             @init-tether @props
 
@@ -54,7 +56,7 @@ module.exports = create-class do
             @init-tether new-props
 
         else if new-props.children
-            @tether.set-options { 
+            @tether.set-options {
                 element: @node
                 target: new-props.target!
             } <<< new-props.options

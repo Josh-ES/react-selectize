@@ -5,6 +5,7 @@
   shallowCompare = require('react-addons-shallow-compare');
   Tether = require('tether');
   module.exports = createClass({
+    displayName: 'ReactTether',
     getDefaultProps: function(){
       return {
         parentElement: function(){

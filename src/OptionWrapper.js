@@ -4,6 +4,7 @@
   isEqualToObject = require('prelude-extension').isEqualToObject;
   cancelEvent = require('./utils').cancelEvent;
   module.exports = createClass({
+    displayName: 'OptionWrapper',
     getDefaultProps: function(){
       return {};
     },
@@ -12,6 +13,7 @@
       return div({
         className: "option-wrapper " + (!!this.props.highlight ? 'highlight' : ''),
         onClick: function(e){
+          console.log(e);
           this$.props.onClick(e);
           return cancelEvent(e);
         },

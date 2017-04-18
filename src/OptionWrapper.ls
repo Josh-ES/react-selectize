@@ -5,6 +5,8 @@
 # OptionWrapper & ValueWrapper are used for optimizing performance
 module.exports = create-class do
 
+    display-name: \OptionWrapper
+
     # get-default-porps :: () -> Props
     get-default-props: ->
         # item :: Item
@@ -25,6 +27,7 @@ module.exports = create-class do
             # mimic the same behaviour as that of an html select element
             # on-mouse-down :: Event -> ()
             on-click: (e) ~>
+                console.log e
                 @props.on-click e
                 cancel-event e
 

@@ -1,7 +1,9 @@
 {create-class, create-factory, DOM:{path}} = require \react
 SvgWrapper = create-factory require \./SvgWrapper
 
-module.exports = create-class do 
+module.exports = create-class do
+
+    display-name: \ToggleButton
 
     # get-default-props :: () -> Props
     get-default-props: ->
@@ -10,11 +12,11 @@ module.exports = create-class do
 
     # render :: a -> ReactElement
     render: ->
-        SvgWrapper do 
+        SvgWrapper do
             class-name: \react-selectize-toggle-button
-            style: 
+            style:
                 width: 10
                 height: 8
-            path d: 
-                | (@props.open and !@props.flipped) or (!@props.open and @props.flipped) => "M0 6 L5 1 L10 6 Z" 
+            path d:
+                | (@props.open and !@props.flipped) or (!@props.open and @props.flipped) => "M0 6 L5 1 L10 6 Z"
                 | _ => "M0 1 L5 6 L10 1 Z"

@@ -3,6 +3,7 @@
   ref$ = require('react'), createClass = ref$.createClass, createFactory = ref$.createFactory, path = ref$.DOM.path;
   SvgWrapper = createFactory(require('./SvgWrapper'));
   module.exports = createClass({
+    displayName: 'ToggleButton',
     getDefaultProps: function(){
       return {
         open: false,
