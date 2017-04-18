@@ -13,7 +13,6 @@
         className: "option-wrapper " + (!!this.props.highlight ? 'highlight' : ''),
         onMouseDown: function(e){
           var listener;
-          console.log(e);
           listener = function(e){
             this$.props.onClick(e);
             return window.removeEventListener('mouseup', listener);
@@ -23,7 +22,16 @@
         },
         onMouseMove: this.props.onMouseMove,
         onMouseOut: this.props.onMouseOut,
-        onMouseOver: this.props.onMouseOver
+        onMouseOver: this.props.onMouseOver,
+        onTouchStart: function(e){
+          var listener;
+          listener = function(e){
+            this$.props.onClick(e);
+            return window.removeEventListener('touchend', listener);
+          };
+          window.addEventListener('touchend', listener);
+          return cancelEvent(e);
+        }
       }, this.props.renderItem(this.props.item));
     },
     shouldComponentUpdate: function(nextProps){
